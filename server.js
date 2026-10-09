@@ -8,7 +8,7 @@ const { getMessaging } = require('firebase-admin/messaging');
 const { RtcTokenBuilder, RtcRole } = require('agora-token');
 require('dotenv').config();
 
-const serviceAccount = require('./azaan-service-account.json');
+const serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON);
 initializeApp({ credential: cert(serviceAccount) });
 const db = getFirestore();
 const messaging = getMessaging();
